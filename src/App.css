@@ -1,163 +1,194 @@
 /* src/App.css */
 :root {
-  --bg-dark: #121212;
-  --bg-card: #1e1e1e;
-  --neon-cyan: #00ffff;
-  --neon-magenta: #ff00ff;
-  --neon-green: #00ff00;
-  --text-primary: #e0e0e0;
+  --black: #000000;
+  --white: #ffffff;
+  --gray-light: #888888;
+  --gray-dark: #111111;
+  --border: #333333;
+  --accents-2: #eaeaea;
 }
 
 body {
   margin: 0;
-  background-color: var(--bg-dark);
-  color: var(--text-primary);
-  font-family: 'Poppins', sans-serif; /* Puedes añadir la fuente en index.html */
+  background-color: var(--black);
+  color: var(--white);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-.portfolio-container {
-  padding: 60px 40px;
-  min-height: 100vh;
+.vercel-layout {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- NAV --- */
+.nav-minimal {
   display: flex;
-  flex-direction: column;
-  gap: 50px;
+  justify-content: space-between;
+  padding: 40px 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--gray-light);
 }
 
-/* --- ESTILOS NEÓN --- */
-.neon-text-cyan {
-  color: var(--neon-cyan);
-  text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan), 0 0 30px var(--neon-cyan);
+.nav-minimal a {
+  color: var(--white);
+  text-decoration: none;
+  transition: opacity 0.2s;
 }
 
-.neon-text-magenta {
-  color: var(--neon-magenta);
-  text-shadow: 0 0 10px var(--neon-magenta), 0 0 20px var(--neon-magenta);
+.nav-minimal a:hover { opacity: 0.7; }
+
+/* --- HERO --- */
+.hero {
+  padding-bottom: 80px;
 }
 
-.neon-border {
-  border: 1px solid var(--neon-cyan);
-  box-shadow: 0 0 10px var(--neon-cyan), 0 0 10px var(--neon-cyan) inset;
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  margin: 40px 0 20px 0;
+  background: linear-gradient(180deg, #fff 0%, #888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* --- HEADER --- */
-.portfolio-header {
-  text-align: center;
-  border-bottom: 2px solid var(--bg-card);
-  padding-bottom: 20px;
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--gray-light);
+  line-height: 1.6;
+  max-width: 600px;
+  margin-bottom: 40px;
 }
 
-.portfolio-header h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
+.hero-cta {
+  display: flex;
+  gap: 15px;
 }
 
-/* --- SOBRE MÍ --- */
-.about-section h2, .projects-section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  padding-left: 15px;
+.btn-primary {
+  background: var(--white);
+  color: var(--black);
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
 }
 
-.about-content {
-  background-color: var(--bg-card);
-  padding: 30px;
-  border-radius: 12px;
+.btn-primary:hover { background: #ccc; }
+
+.btn-secondary {
+  border: 1px solid var(--border);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover { background: var(--gray-dark); }
+
+/* --- SECTIONS --- */
+.section-container {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+
+.section-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--gray-light);
+  margin-bottom: 40px;
+}
+
+.about-text {
+  font-size: 1.2rem;
   line-height: 1.8;
-  font-size: 1.1rem;
-  position: relative;
-  border: 1px solid #333;
+  color: var(--accents-2);
 }
 
-.highlight-python, .highlight-react, .highlight-git, .highlight-docker, .highlight-render {
-  font-weight: bold;
-  color: var(--neon-cyan);
-  text-shadow: 0 0 5px var(--neon-cyan);
-}
-
-/* --- PROYECTOS --- */
+/* --- PROJECTS GRID --- */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
 }
 
 .project-card {
-  background-color: var(--bg-card);
-  padding: 30px;
-  border-radius: 15px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, background 0.2s;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #333;
+  gap: 12px;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  border: 1px solid var(--neon-magenta);
-  box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+  border-color: var(--white);
+  background: var(--gray-dark);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge {
+  font-size: 0.7rem;
+  background: #222;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: var(--gray-light);
+}
+
+.external-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--gray-light);
 }
 
 .project-card h3 {
-  font-size: 1.6rem;
-  margin-top: 0;
+  margin: 0;
+  font-size: 1.25rem;
 }
 
-.project-desc {
-  font-size: 1rem;
-  opacity: 0.9;
-  flex-grow: 1;
+.project-card p {
+  color: var(--gray-light);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
 }
 
-.tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.tech-badge {
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: bold;
-  background-color: rgba(0, 255, 255, 0.1);
-}
-
-.neon-button-green {
-  background-color: transparent;
-  color: var(--neon-green);
-  border: 2px solid var(--neon-green);
-  padding: 12px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  text-align: center;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 10px var(--neon-green), 0 0 10px var(--neon-green) inset;
-}
-
-.neon-button-green:hover {
-  background-color: var(--neon-green);
-  color: #121212;
-  box-shadow: 0 0 30px var(--neon-green), 0 0 20px var(--neon-green) inset;
-}
-
-/* --- FOOTER --- */
-.portfolio-footer {
-  text-align: center;
+.card-footer {
+  font-size: 0.8rem;
+  color: var(--white);
+  font-weight: 500;
   margin-top: auto;
-  padding-top: 30px;
-  border-top: 2px solid var(--bg-card);
-  font-size: 0.9rem;
-  opacity: 0.7;
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-  .portfolio-container { padding: 30px; }
-  .portfolio-header h1 { font-size: 2.2rem; }
-  .about-content { padding: 20px; font-size: 1rem; }
-  .project-card h3 { font-size: 1.4rem; }
+.footer {
+  padding: 40px 0;
+  color: #444;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* Animación de entrada */
+.tracking-in-expand {
+	animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+@keyframes tracking-in-expand {
+  0% { letter-spacing: -0.5em; opacity: 0; }
+  40% { opacity: 0.6; }
+  100% { opacity: 1; }
 }

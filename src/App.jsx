@@ -1,68 +1,77 @@
 import React from 'react'
-import './App.css' // Importante, crearemos este archivo
+import './App.css'
 
 function App() {
   const proyectos = [
     {
-      titulo: "Lógica Python y Jupyter",
-      desc: "Resolución crítica de algoritmos complejos de manipulación de datos y lógica avanzada. Incluye notebooks documentados para análisis profundo.",
+      titulo: "Python Logic & Jupyter Analysis",
+      desc: "Implementación de algoritmos de optimización y estructuras de datos complejas. Documentado en entornos de investigación computacional.",
       link: "https://github.com/JesusGaAl/Python_Ejercicios",
-      techs: ["Python 3", "Jupyter", "Algorithm Design"]
+      badge: "Backend"
     },
     {
-      titulo: "Base de Datos Py v1.0",
-      desc: "Arquitectura y despliegue de un sistema de gestión de datos estructurado. Integra lógica de backend y manejo eficiente de consultas.",
+      titulo: "Database Management System",
+      desc: "Desarrollo de arquitectura de persistencia de datos. Enfoque en integridad referencial y eficiencia de consultas en Python.",
       link: "https://github.com/JesusGaAl/proyecto_database_py",
-      techs: ["Python", "SQL", "Database Architecture"]
+      badge: "Infrastructure"
     }
   ];
 
   return (
-    <div className="portfolio-container">
-      {/* --- HEADER --- */}
-      <header className="portfolio-header">
-        <h1 className="neon-text-cyan">JESUSGAAL | PORTFOLIO</h1>
-        <p className="neon-text-magenta">INGENIERO DE SISTEMAS EN FORMACIÓN | QUERÉTARO, MÉXICO</p>
+    <div className="vercel-layout">
+      {/* --- HERO SECTION --- */}
+      <header className="hero">
+        <nav className="nav-minimal">
+          <span>JesusGaAl</span>
+          <a href="https://github.com/JesusGaAl" target="_blank">GitHub</a>
+        </nav>
+        
+        <div className="hero-content">
+          <h1 className="tracking-in-expand">Ingeniero de Sistemas</h1>
+          <p className="subtitle">
+            Especializado en el desarrollo de software robusto con <strong>React</strong> y <strong>Python</strong>. 
+            Enfoque en arquitectura limpia y despliegue escalable.
+          </p>
+          <div className="hero-cta">
+            <a href="#proyectos" className="btn-primary">Ver Proyectos</a>
+            <a href="mailto:tu-correo@ejemplo.com" className="btn-secondary">Contacto</a>
+          </div>
+        </div>
       </header>
 
-      {/* --- SOBRE MÍ --- */}
-      <section className="about-section">
-        <h2 className="neon-text-cyan border-glow">Sobre Mí</h2>
-        <div className="about-content border-glow-content">
-          <p>
-            Apasionado Ingeniero de Sistemas enfocado en la fusión de la eficiencia técnica y la experiencia de usuario. 
-            Domino el backend con <span className="highlight-python">Python</span> para manipulación de datos y diseño de lógica, 
-            y el frontend con <span className="highlight-react">React</span> para interfaces de usuario modernas y responsivas. 
-            Cuento con experiencia práctica en despliegue continuo (<span className="highlight-render">CI/CD en Render</span>), 
-            manejo de versiones con <span className="highlight-git">Git</span>, y gestión de infraestructura como código (<span className="highlight-docker">Docker</span>).
-          </p>
-        </div>
+      {/* --- SOBRE MÍ (Minimal) --- */}
+      <section className="section-container">
+        <h2 className="section-title">Sobre mí</h2>
+        <p className="about-text">
+          Desarrollador con mentalidad de ingeniería. Mi trabajo se centra en resolver problemas complejos 
+          mediante código eficiente. Domino el ciclo de vida del software: desde la lógica en 
+          <strong> Python</strong> hasta la interfaz de usuario en <strong>React</strong>, 
+          gestionando la infraestructura con <strong>Docker</strong> y despliegue continuo en <strong>Render</strong>.
+        </p>
       </section>
 
-      {/* --- PROYECTOS --- */}
-      <section className="projects-section">
-        <h2 className="neon-text-cyan border-glow">Proyectos Destacados</h2>
+      {/* --- PROYECTOS (Vercel Style Grid) --- */}
+      <section id="proyectos" className="section-container">
+        <h2 className="section-title">Proyectos Seleccionados</h2>
         <div className="projects-grid">
           {proyectos.map((proy, i) => (
-            <div key={i} className="project-card border-glow-card">
-              <h3 className="neon-text-magenta">{proy.titulo}</h3>
-              <p className="project-desc">{proy.desc}</p>
-              <div className="tech-stack">
-                {proy.techs.map(tech => (
-                  <span key={tech} className="tech-badge neon-border">{tech}</span>
-                ))}
+            <a key={i} href={proy.link} target="_blank" rel="noopener noreferrer" className="project-card">
+              <div className="card-header">
+                <span className="badge">{proy.badge}</span>
+                <svg className="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                </svg>
               </div>
-              <a href={proy.link} target="_blank" rel="noopener noreferrer" className="neon-button-green">
-                Ver Código en GitHub →
-              </a>
-            </div>
+              <h3>{proy.titulo}</h3>
+              <p>{proy.desc}</p>
+              <span className="card-footer">github.com/JesusGaAl →</span>
+            </a>
           ))}
         </div>
       </section>
 
-      {/* --- FOOTER --- */}
-      <footer className="portfolio-footer">
-        <p>&copy; 2026 Jesús GaAl | Link en CV verificado | Desplegado en Render Free Tier.</p>
+      <footer className="footer">
+        <p>© 2026 JesusGaAl. Built with React & Vite. Hosted on Render.</p>
       </footer>
     </div>
   )
