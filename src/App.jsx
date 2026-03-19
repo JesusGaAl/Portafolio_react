@@ -27,7 +27,7 @@ function App() {
         </nav>
         
         <div className="hero-content">
-          <h1 className="tracking-in-expand">Ingeniero de Sistemas</h1>
+          <h1 className="tracking-in-expand">Desarrollador de Software</h1>
           <p className="subtitle">
             Especializado en el desarrollo de software robusto con <strong>React</strong> y <strong>Python</strong>. 
             Enfoque en arquitectura limpia y despliegue escalable.
